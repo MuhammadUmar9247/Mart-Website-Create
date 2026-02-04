@@ -1,0 +1,3 @@
+"use strict";
+
+console.log("This file is no longer needed in your store. You may remove it from your store by following this path: Themes > Actions > Edit code > Snippets > starapps-core.liquid\n\nSearch for: https://assets-cdn.starapps.studio/apps/vsk/fresh-basket-3195/script-53111-1687669407.js");

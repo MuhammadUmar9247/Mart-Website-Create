@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Mart - My Product List</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo">Prime Mart 🛒</div>
+
+    <!-- NAV LINKS -->
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./Aboutpage.html">About</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./productlist.html">Product List</a></li>
+
+    </ul>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search product...">
+        <button onclick="searchProduct()">Search</button>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="form">
+        <input type="text" id="name" placeholder="Product Name">
+        <input type="number" id="price" placeholder="Price">
+        <input type="number" id="qty" placeholder="Quantity">
+        <button id="addBtn">Add</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody id="billBody"></tbody>
+    </table>
+
+    <h3>Grand Total: Rs <span id="grandTotal">0</span></h3>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2026 Muhammad Umar. All rights reserved.</p>
+</footer>
+
+
+<script src="./javascript.js"></script>
+</body>
+</html>

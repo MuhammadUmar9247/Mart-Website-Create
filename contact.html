@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+     <nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo">Prime Mart 🛒</div>
+
+    <!-- NAV LINKS -->
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./Aboutpage.html">About</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./productlist.html">Product List</a></li>
+
+    </ul>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search product...">
+        <button onclick="searchProduct()">Search</button>
+    </div>
+</nav>
+
+<section class="contact-section">
+    <div class="contact-container">
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Email: humer7028@gmail.com</p>
+            <p>Phone: +92 3202064981</p>
+            <p>Location: Karachi Sindh Pakistan</p>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Message</h2>
+
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <input type="text" id="subject" placeholder="Subject">
+                <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+                <p id="formMessage"></p>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Google Map -->
+<div class="map">
+    <iframe 
+        src="https://maps.google.com/maps?q=karachi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2026 Muhammad Umar. All rights reserved.</p>
+</footer>
+
+
+<script src="javascript.js"></script>
+
+</body>
+</html>

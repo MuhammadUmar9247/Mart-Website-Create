@@ -1,0 +1,80 @@
+jQuery.fn.extend({
+  CSRating: function(options){
+    if(typeof(options)=='undefined') options={fontSize:24};
+    var ratings=[];
+    objs=this;
+    if(objs.length){
+      for(var i=0;i<objs.length;i++){
+        ratings.push(new simpleRating(options,objs[i]));
+      }
+    }
+  },
+});
+
+class simpleRating{
+  constructor(options,obj) {
+    this.obj=obj;
+    this.options=options;
+    this.rating=0;
+    this.init();
+  }
+
+  init(){
+	  let {
+		fontSize,
+		color
+	  } = this.options;
+    var html='<div class="simple-rating star-rating" >';
+    for(var i=0;i<5;i++){html+=`
+	<i class="cs-star-o" style="font-size:${fontSize}px; color:${color}" data-rating="${(i+1)}">
+		<svg height="25" width="23" class="star rating" data-rating="1">
+			<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#d8d8d8;"/>
+		</svg>
+	</i>`;}
+    html+='</div>';
+
+    $(this.obj)
+      .attr('type','hidden')
+      .after(html);
+
+    $(this.obj).next().children().click({classObj:this},function(e){
+      e.data.classObj.rate(this);
+    });
+
+    $(this.obj).next().children().mouseenter({classObj:this},function(e){
+      e.data.classObj.setstars($(this).data('rating'));
+    });
+
+    $(this.obj).next().children().mouseleave({classObj:this},function(e){
+      e.data.classObj.setstars(e.data.classObj.rating);
+    });
+  }
+
+  rate(obj){
+    var rating=$(obj).data('rating');
+    $(obj).parent().prev().val(rating);
+    this.rating=rating;
+    this.refresh();
+  }
+
+  refresh(){
+    this.setstars(this.rating);
+  }
+
+  setstars(rating){
+	let {
+		color
+	} = this.options;
+    var stars=$(this.obj).next().children();
+    for(var i=0;i<5;i++){
+      var starObj=$(this.obj).next().children()[i];
+      if(i<rating){
+        $(starObj).removeClass('cs-star-o').find("polygon").css({fill:"#d8d8d8"});
+        $(starObj).addClass('cs-star').find("polygon").css({fill:color});
+      }else{
+        $(starObj).addClass('cs-star-o').find("polygon").css({fill:color});
+        $(starObj).removeClass('cs-star').find("polygon").css({fill:"#d8d8d8"});
+      }
+    }
+  }
+}
